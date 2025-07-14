@@ -5,13 +5,10 @@ interface Teacher {
     lastName: string;
     location: string;
     contract: boolean;
+    [key: string]: any; // Allow additonal properties
 }
 // An interface named Directprs that extends Teacher 
-interface Director {
-    readonly firstName: string;
-    readonly lastName: string;
-    location: string;
-    fullTimeEmployee: boolean;
+interface Directors extends Teacher {
     numberOfReports: number;
 };
 
@@ -23,12 +20,13 @@ const teacher: Teacher = {
     contract: false,
 }
 
-const director: Director = {
+const director: Directors = {
     firstName: 'Kenneth',
     lastName: 'Brown',
     location: 'Johannesburg',
     fullTimeEmployee: true,
-    numberOfReports: 15,
+    numberOfReports: 16,
+    contract: true,
 }
 
 console.log(teacher);
