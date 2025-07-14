@@ -7,10 +7,32 @@ interface Teacher {
     contract: boolean;
     [key: string]: any; // Allow additonal properties
 }
-// An interface named Directprs that extends Teacher 
+// An interface named Directors that extends Teacher 
 interface Directors extends Teacher {
     numberOfReports: number;
 };
+
+// StudentClass
+class StudentClass {
+    firstName: string;
+    lastName: string;
+
+    // Default constructor 
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    workOnHomeWork(): string {
+        return 'Currently working';
+    }
+
+    displayName(): string {
+        return this.firstName;
+    }
+}
+
+
 
 const teacher: Teacher = {
    firstName: 'John',
@@ -29,5 +51,18 @@ const director: Directors = {
     contract: true,
 }
 
+// Function for printing Teacher 
+function printTeacher(firstName: string, lastName: string): string {
+    return `${firstName.charAt(0)}. ${lastName}`;
+}
+
 console.log(teacher);
 console.log(director);
+
+// Using the printing function 
+console.log(printTeacher("John", "Doe")); // Output: J. Doe
+
+// Example of usage 
+const student = new StudentClass('Khethelo', 'Njomo');
+console.log(student.displayName());
+console.log(student.workOnHomeWork());
